@@ -1,1 +1,53 @@
+#include<bits/stdc++.h>
+using namespace std;
 
+class LabelGenerator{
+    protected:
+    string name;
+    int num;
+public:
+    LabelGenerator(string s,int n){
+        name = s;
+        num = n;
+    }
+    virtual void nextLabel(){
+        cout<< name <<num++;
+    }
+};
+class FileLabelGenerator : public LabelGenerator{
+private:
+    ifstream inputFile;
+public:
+    FileLabelGenerator(string s,int n, string nam): LabelGenerator(s,n),inputFile(nam){}
+    void nextLabel() override {
+        string line;
+        if (getline(inputFile,line)) {
+            LabelGenerator::nextLabel();
+            cout << " " << line;
+        } else {
+            // If the file is at the end, reset it for subsequent calls
+            inputFile.clear();
+            inputFile.seekg(0, ios::beg);
+            LabelGenerator::nextLabel();
+        }
+
+    }
+
+};
+int main() {
+    LabelGenerator figureNumbers("Figure ", 1);
+    cout << "Figure numbers: ";
+    for (int i = 0; i < 3; i++) {
+        figureNumbers.nextLabel() ;
+        if(i<2)
+        cout<<", ";
+    }
+    cout<<endl;
+    FileLabelGenerator figureLabels ("Figure ", 1, "labels.txt");
+    cout << "Figure labels: \n";
+    for (int i = 0; i < 3; i++) {
+        figureLabels.nextLabel();
+        cout<<endl;
+    }
+        return 0;
+}
