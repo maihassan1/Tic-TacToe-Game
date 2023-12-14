@@ -25,7 +25,7 @@ void GameManager::run1() {
                 players[i]->get_move(x, y);
             }
             boardPtr->display_board();
-            if (boardPtr->is_winner(1)){
+            if (boardPtr->is_winner()){
                 cout  << players[i]->to_string() << " wins\n";
                 return;
             }
