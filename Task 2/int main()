@@ -6,10 +6,13 @@ using namespace std;
 #include"C:\Users\مول الاصدقاء للاتسوق\CLionProjects\CS\RandomPlayer.cpp"
 #include "C:\Users\مول الاصدقاء للاتسوق\CLionProjects\CS\XOBoard.cpp"
 #include "C:\Users\مول الاصدقاء للاتسوق\CLionProjects\CS\GameMenu.cpp"
+#include "C:\Users\مول الاصدقاء للاتسوق\CLionProjects\CS\Pyramic_Board.cpp"
+#include"C:\Users\مول الاصدقاء للاتسوق\CLionProjects\CS\Player2.cpp"
 
 int main() {
     GameMenu p;
     p.Menu();
+
 
     return 0;
 }
