@@ -13,7 +13,7 @@ GameManager::GameManager(Board* bPtr, Player* playerPtr[2] ) {
     players[1] = playerPtr[1];
 }
 
-void GameManager::run() {
+void GameManager::run1() {
     int x, y;
 
     boardPtr->display_board();
@@ -36,3 +36,10 @@ void GameManager::run() {
         }
     }
 }
+void GameManager ::run2(){
+}
+void GameManager ::run3(){
+}
+void GameManager ::run4(){
+}
+
