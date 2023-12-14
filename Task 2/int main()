@@ -1,0 +1,15 @@
+#include<bits/stdc++.h>
+using namespace std;
+#include"C:\Users\مول الاصدقاء للاتسوق\CLionProjects\CS\BoardGame.h"
+#include"C:\Users\مول الاصدقاء للاتسوق\CLionProjects\CS\GameManager.cpp"
+#include"C:\Users\مول الاصدقاء للاتسوق\CLionProjects\CS\Player.cpp"
+#include"C:\Users\مول الاصدقاء للاتسوق\CLionProjects\CS\RandomPlayer.cpp"
+#include "C:\Users\مول الاصدقاء للاتسوق\CLionProjects\CS\XOBoard.cpp"
+#include "C:\Users\مول الاصدقاء للاتسوق\CLionProjects\CS\GameMenu.cpp"
+
+int main() {
+    GameMenu p;
+    p.Menu();
+
+    return 0;
+}
