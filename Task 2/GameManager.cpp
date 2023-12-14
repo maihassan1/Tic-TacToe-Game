@@ -7,22 +7,23 @@
 #include"C:\Users\مول الاصدقاء للاتسوق\CLionProjects\CS\BoardGame.h"
 using namespace std;
 
-GameManager::GameManager(Board* bPtr, Player* playerPtr[2] ) {
+GameManager::GameManager(Board* bPtr, Player* playerPtr[2],int gChoice) {
     boardPtr = bPtr;
     players[0] = playerPtr[0];
     players[1] = playerPtr[1];
+    gameChoice = gChoice;
 }
 
-void GameManager::run1() {
+void GameManager::run() {
     int x, y;
 
     boardPtr->display_board();
 
     while (!boardPtr->game_is_over()) {
         for (int i:{0,1}) {
-            players[i]->get_move(x, y);
+            players[i]->get_move(x, y,gameChoice);
             while (!boardPtr->update_board (x, y, players[i]->get_symbol())){
-                players[i]->get_move(x, y);
+                players[i]->get_move(x, y,gameChoice);
             }
             boardPtr->display_board();
             if (boardPtr->is_winner()){
@@ -36,10 +37,5 @@ void GameManager::run1() {
         }
     }
 }
-void GameManager ::run2(){
-}
-void GameManager ::run3(){
-}
-void GameManager ::run4(){
-}
+
 
