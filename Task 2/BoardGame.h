@@ -42,6 +42,15 @@ public:
     bool is_draw();
     bool game_is_over();
 };
+class PyramicBoard:Board{
+public:
+    PyramicBoard();
+    bool update_board (int x, int y, char mark);
+    void display_board();
+    bool is_winner();
+    bool is_draw();
+    bool game_is_over();
+};
 
 ///////////////////////////////////////////
 // This class represents a player who has
@@ -60,7 +69,7 @@ public:
     Player (int order, char symbol);
     // Get desired move: x y (each between 0 and 2)
     // Virtual (can change for other player types)
-    virtual void get_move(int& x, int& y);
+    virtual void get_move(int& x, int& y,int Game);
     // Give player info as a string
     string to_string();
     // Get symbol used by player
@@ -86,12 +95,10 @@ class GameManager {
 private:
     Board* boardPtr;
     Player* players[2];
+    int gameChoice;
 public:
-    GameManager(Board*, Player* playerPtr[2]);
-    void run1();
-    void run2();
-    void run3();
-    void run4();
+    GameManager(Board*, Player* playerPtr[2],int);
+    void  run();
     // This method creates board and players
     // It displays board
     // While True
@@ -104,8 +111,6 @@ public:
 };
 class GameMenu: public Player {
 private:
-    int choice;
-    int playerChoice;
     Player *players[2];
 public:
     GameMenu() : Player(symbol) {}
