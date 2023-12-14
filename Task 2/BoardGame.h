@@ -88,7 +88,10 @@ private:
     Player* players[2];
 public:
     GameManager(Board*, Player* playerPtr[2]);
-    void run();
+    void run1();
+    void run2();
+    void run3();
+    void run4();
     // This method creates board and players
     // It displays board
     // While True
@@ -98,6 +101,15 @@ public:
     //      If winner, declare so and end
     //      If draw, declare so and end
 
+};
+class GameMenu: public Player {
+private:
+    int choice;
+    int player;
+    Player *players[2];
+public:
+    GameMenu() : Player(symbol) {}
+    void Menu();
 };
 
 #endif
