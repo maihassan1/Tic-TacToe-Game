@@ -28,9 +28,21 @@ Player::Player (int order, char symbol) {
 
 // Get desired move: x y (each between 0 and 2)
 // Virtual (can change for other player types)
-void Player::get_move (int& x, int& y) {
-    cout << "\nPlease enter your move x and y (0 to 2) separated by spaces: ";
-    cin >> x >> y;
+void Player::get_move (int& x, int& y,int Game) {
+    if(Game==1) {
+        cout << "\nPlease enter your move x and y (0 to 2) separated by spaces: ";
+        cin >> x >> y;
+    }
+    else if(Game == 3){
+
+    }
+    else if(Game == 2){
+
+    }
+    else if(Game == 4){
+
+    }
+
 }
 
 // Give player info as a string
