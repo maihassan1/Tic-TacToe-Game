@@ -105,7 +105,7 @@ public:
 class GameMenu: public Player {
 private:
     int choice;
-    int player;
+    int playerChoice;
     Player *players[2];
 public:
     GameMenu() : Player(symbol) {}
