@@ -17,7 +17,7 @@ void GameMenu::Menu(){
     if (choice == 1) {
 
         players[0] = new Player(1, 'x');
-        cout << "choose 1 if you want computer player:";
+        cout << "choose 1 if you want computer player: ";
         cin >> choice;
         if (choice == 1) {
             players[1] = new RandomPlayer('o', 3);
@@ -29,7 +29,7 @@ void GameMenu::Menu(){
     }
     if (choice == 2) {
         players[0] = new Player2('x',1);
-        cout << "choose 1 if you want computer player:";
+        cout << "choose 1 if you want computer player: ";
         cin >> choice;
         if (choice == 1) {
             players[1] = new RandomPlayer('o', 5);
@@ -43,5 +43,15 @@ void GameMenu::Menu(){
 
     }
     if (choice == 4) {
+        Player* players[2];
+    players[0] = new Tic_Tac_Toe_Player (1, 'x');
+    cout << "choose 1 if you want computer player: ";
+    cin >> choice;
+    if (choice != 1)
+        players[1] = new Tic_Tac_Toe_Player (2, 'o');
+    else
+        players[1] = new Tic_Tac_Toe_Rplayer ('o', 5);
+
+    GameManager x_o_game (new Tic_Tac_Toe(), players);
+    x_o_game.run();
     }
-}
