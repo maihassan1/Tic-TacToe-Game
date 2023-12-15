@@ -101,6 +101,7 @@ public:
     // Generate a random move
     void get_move(int& x, int& y);
 };
+
 class Player2 : public Player{
 public:
 
@@ -110,6 +111,22 @@ public:
     string to_string();
     char get_symbol();
 
+};
+
+class Tic_Tac_Toe_Player : public Player{
+public:
+    Tic_Tac_Toe_Player (char symbol);
+    Tic_Tac_Toe_Player (int order, char symbol);
+    void get_move(int& x, int& y);
+    string to_string();
+    char get_symbol();
+
+};
+
+class Tic_Tac_Toe_Rplayer: public RandomPlayer{
+public:
+    Tic_Tac_Toe_Rplayer (char symbol, int dimension);
+    void get_move(int& x, int& y);
 };
 
 ///////////////////////////////////////////
