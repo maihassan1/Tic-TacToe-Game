@@ -62,7 +62,15 @@ public:
     bool game_is_over();
 };
 
-
+class Four_in_a_row_Board:public Board {
+public:
+    Four_in_a_row_Board ();
+    bool update_board(int column, char symbol, char i);
+    void display_board();
+    bool is_winner();
+    bool is_draw();
+    bool game_is_over();
+};
 
 ///////////////////////////////////////////
 // This class represents a player who has
