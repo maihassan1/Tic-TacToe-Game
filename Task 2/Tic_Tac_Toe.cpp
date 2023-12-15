@@ -4,15 +4,6 @@
 #include <algorithm>
 #include "../include/BoardGame_Classes.hpp"
 
-class Tic_Tac_Toe :public Board {
-public:
-    Tic_Tac_Toe();
-    bool update_board (int x, int y, char mark);
-    void display_board();
-    bool is_winner();
-    bool is_draw();
-    bool game_is_over();
-};
 
 class Tic_Tac_Toe_Player : public Player{
 public:
@@ -67,55 +58,69 @@ void Tic_Tac_Toe::display_board() {
 
 bool Tic_Tac_Toe::is_winner() {
     int x_count = 0, o_count = 0;
-if(n_moves==24){
-    for (int i = 0; i < 5; i++) {
-        if (board[i][0] == board[i][1] && board[i][1] == board[i][2]) {
-            if (board[i][0] == 'X') x_count++;
-            else if (board[i][0] == 'O') o_count++;
+if(n_moves==24)
+    {
+        // horizontal and vertical cells
+    for (int i = 0; i < 5; i++)
+    {
+      for(int j = 0; j < 3; j++)
+      {
+        if (board[i][j] == board[i][j+1] && board[i][j+1] == board[i][j+2])
+        {
+            if (board[i][j] == 'X')
+                x_count++;
+            else if(board[i][j]== 'O')
+              o_count++;
         }
-        if (board[0][i] == board[1][i] && board[1][i] == board[2][i]) {
-            if (board[0][i] == 'X') x_count++;
-            else if (board[0][i] == 'O') o_count++;
+        if (board[j][i] == board[j+1][i] && board[j+1][i] == board[j+2][i])
+        {
+            if (board[j][i] == 'X')
+                x_count++;
+            else if(board[j][i]== 'O')
+                 o_count++;
         }
     }
-    for(int i = 0;i < 3; i++){
-        if (board[i][i]==board[i+1][i+1] && board[i+1][i+1]==board[i+2][i+2]){
-           if (board[i][i] == 'X') x_count++;
-           else if (board[i][i] == 'O') o_count++;
-        }
-        if (board[i+2][i] == board[i+1][i+1] && board[i+1][i+1] == board[i][i+2]){
-           if (board[i+2][i] == 'X') x_count++;
-           else if (board[i+2][i] == 'O') o_count++;
+    }
+      //diagonal cells
+    for (int i = 0;i < 3;i++)
+    {
+        for (int j = 0;j < 3;j++)
+        {
+            if (board[i + 2][j] == board[i + 1][i + 1] && board[i + 1][i + 1] == board[i][j + 2])
+            {
+                if (board[i + 2][j] == 'X')
+                    x_count++;
+                else if (board[i+2][j] == 'O')
+                    o_count++;
+            }
         }
     }
-    for(int i=0; i<3; i++){
-        if (board[i][4-i]==board[i+1][3-i] && board[i+1][3-i]==board[i+2][2-i]){
-           if (board[i][4-i] == 'X') x_count++;
-           else if (board[i][4-i] == 'O') o_count++;
+    for (int i = 0;i < 3;i++)
+    {
+        for (int j = 0;j < 3;j++)
+        {
+            if (board[i][j] == board[i + 1][i + 1] && board[i + 1][i + 1] == board[i+2][j + 2])
+            {
+                if (board[i][j] == 'X')
+                    x_count++;
+                else if(board[i][j] == 'X')
+                    o_count++;
+            }
         }
-        if (board[i][i+2]==board[i+1][i+1] && board[i+1][i+1]==board[i+2][i]){
-            if (board[i][i+2] == 'X') x_count++;
-           else if (board[i][i+2] == 'O') o_count++;
-        }
-
     }
 
    if (x_count > o_count){
-        cout<<"player X wins "<<endl;
-
+        cout<<"Player X wins "<<endl;
+        exit(0);
    }
     else if (o_count > x_count){
-            cout<< "player O wins "<<endl;
+        cout<< "Player O wins "<<endl;
+        exit(0);
     }
 
-    exit(0);
-
 }
-
-
 return false;
 }
-
 bool Tic_Tac_Toe::is_draw() {
     return (n_moves == 24 && !is_winner());
 }
