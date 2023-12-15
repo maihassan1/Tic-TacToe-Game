@@ -52,6 +52,18 @@ public:
     bool game_is_over();
 };
 
+class Tic_Tac_Toe :public Board {
+public:
+    Tic_Tac_Toe();
+    bool update_board (int x, int y, char mark);
+    void display_board();
+    bool is_winner();
+    bool is_draw();
+    bool game_is_over();
+};
+
+
+
 ///////////////////////////////////////////
 // This class represents a player who has
 // a name and a symbol to put on board
