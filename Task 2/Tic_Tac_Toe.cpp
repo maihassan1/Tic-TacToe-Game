@@ -5,22 +5,6 @@
 #include "../include/BoardGame_Classes.hpp"
 
 
-class Tic_Tac_Toe_Player : public Player{
-public:
-    Tic_Tac_Toe_Player (char symbol);
-    Tic_Tac_Toe_Player (int order, char symbol);
-    void get_move(int& x, int& y);
-    string to_string();
-    char get_symbol();
-
-};
-
-class Tic_Tac_Toe_Rplayer: public RandomPlayer{
-public:
-    Tic_Tac_Toe_Rplayer (char symbol, int dimension);
-    void get_move(int& x, int& y);
-};
-
 Tic_Tac_Toe ::Tic_Tac_Toe() {
     n_rows = n_cols = 5;
     board = new char*[n_rows]; //array of pointers
@@ -121,6 +105,7 @@ if(n_moves==24)
 }
 return false;
 }
+
 bool Tic_Tac_Toe::is_draw() {
     return (n_moves == 24 && !is_winner());
 }
