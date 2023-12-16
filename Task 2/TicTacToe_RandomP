@@ -1,0 +1,12 @@
+#include<bits/stdc++.h>
+using namespace std;
+#include"C:\Users\مول الاصدقاء للاتسوق\CLionProjects\CS\BoardGame.h"
+Tic_Tac_Toe_Rplayer::Tic_Tac_Toe_Rplayer(char symbol,int dimension):RandomPlayer(symbol,dimension){
+    this->dimension = dimension;
+    this->name;
+}
+
+void Tic_Tac_Toe_Rplayer::get_move (int& x, int& y) {
+    x = (int) (rand()/(RAND_MAX + 1.0) * dimension);
+    y = (int) (rand()/(RAND_MAX + 1.0) *dimension);
+}
