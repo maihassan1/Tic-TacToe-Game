@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+#include"C:\Users\مول الاصدقاء للاتسوق\CLionProjects\CS\BoardGame.h"
+Tic_Tac_Toe_Player::Tic_Tac_Toe_Player(char symbol):Player(symbol){
+    this->symbol = symbol;
+
+}
+
+Tic_Tac_Toe_Player::Tic_Tac_Toe_Player(int order, char symbol): Player(order,symbol){
+
+    this->symbol = symbol;
+
+}
+
+void Tic_Tac_Toe_Player::get_move(int& x, int& y){
+    cout<<"\nPlease enter your move x and y (0 to 4) separated by spaces: ";
+    cin>> x >> y;
+}
+
+
+char Tic_Tac_Toe_Player::get_symbol(){
+    return  Player::get_symbol();
+
+}
+string Tic_Tac_Toe_Player:: to_string(){
+    return "Player: " + name;
+
+}
