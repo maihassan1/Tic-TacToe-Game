@@ -4,7 +4,8 @@ using namespace std;
 Tic_Tac_Toe ::Tic_Tac_Toe() {
     n_rows = n_cols = 5;
     board = new char*[n_rows]; //array of pointers
-    for (int i = 0; i < n_rows; i++) {
+    for (int i = 0; i < n_rows; i++) 
+    {
         board [i] = new char[n_cols];
         for (int j = 0; j < n_cols; j++)
             board[i][j] = 0;
@@ -13,7 +14,8 @@ Tic_Tac_Toe ::Tic_Tac_Toe() {
 
 bool Tic_Tac_Toe::update_board (int x, int y, char mark){
 
-    if (!(x < 0 || x > 4 || y < 0 || y > 4) && (board[x][y] == 0)) {
+    if (!(x < 0 || x > 4 || y < 0 || y > 4) && (board[x][y] == 0)) 
+    {
         board[x][y] = toupper(mark);
         n_moves++;
         return true;
@@ -24,9 +26,11 @@ bool Tic_Tac_Toe::update_board (int x, int y, char mark){
 
 
 void Tic_Tac_Toe::display_board() {
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 5; i++) 
+    {
         cout << "\n| ";
-        for (int j = 0; j < 5; j++) {
+        for (int j = 0; j < 5; j++) 
+        {
             cout << "(" << i << "," << j << ")";
             cout << setw(2) << board [i][j] << " |";
         }
@@ -89,11 +93,13 @@ bool Tic_Tac_Toe::is_winner() {
         }
       }
 
-     if (x_count > o_count){
+     if (x_count > o_count)
+     {
         cout<<"Player X wins "<<endl;
         exit(0);
      }
-     else if (o_count > x_count){
+     else if (o_count > x_count)
+     {
         cout<< "Player O wins "<<endl;
         exit(0);
      }
