@@ -65,7 +65,7 @@ public:
 class Four_in_a_row_Board:public Board {
 public:
     Four_in_a_row_Board ();
-    bool update_board(int column, char symbol, char i);
+    bool update_board (int x, int y, char mark);
     void display_board();
     bool is_winner();
     bool is_draw();
@@ -95,7 +95,14 @@ public:
     // Get symbol used by player
     char get_symbol();
 };
-
+class Four_in_a_row_BoardPlayer:public Player {
+public:
+    Four_in_a_row_BoardPlayer(char symbol);
+    Four_in_a_row_BoardPlayer (int order, char symbol);
+   void get_move(int&x,int& y);
+    string to_string();
+    char get_symbol();
+};
 ///////////////////////////////////////////
 // This class represents a random computer player
 // that generates random positions x y (0 to 2)
@@ -109,7 +116,24 @@ public:
     // Generate a random move
     void get_move(int& x, int& y);
 };
+class RandomPlayer2: public Player {
+protected:
+    int oddRows;
+    int dimension;
+public:
+    // Take a symbol and pass it to parent
+    RandomPlayer2 (char symbol, int dimension);
+    // Generate a random move
+    void get_move(int& x, int& y);
+};
+class Four_in_a_row_BoardRandomPlayer: public Player {
+protected:
+    int dimension;
+public:
 
+    Four_in_a_row_BoardRandomPlayer (char symbol, int dimension);
+    void get_move(int& x,int& y);
+};
 class Player2 : public Player{
 public:
 
@@ -164,4 +188,3 @@ public:
 };
 
 #endif
-
