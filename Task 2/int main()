@@ -8,6 +8,13 @@ using namespace std;
 #include "C:\Users\مول الاصدقاء للاتسوق\CLionProjects\CS\GameMenu.cpp"
 #include "C:\Users\مول الاصدقاء للاتسوق\CLionProjects\CS\Pyramic_Board.cpp"
 #include"C:\Users\مول الاصدقاء للاتسوق\CLionProjects\CS\Player2.cpp"
+#include"C:\Users\مول الاصدقاء للاتسوق\CLionProjects\CS\TicTacToe_RandomP.cpp"
+#include "C:\Users\مول الاصدقاء للاتسوق\CLionProjects\CS\TicTacToeBoard.cpp"
+#include "C:\Users\مول الاصدقاء للاتسوق\CLionProjects\CS\TicTacToePlayer.cpp"
+#include "C:\Users\مول الاصدقاء للاتسوق\CLionProjects\CS\Four_in_a_row_Board.cpp"
+#include "C:\Users\مول الاصدقاء للاتسوق\CLionProjects\CS\Four_in_a_row_Player.cpp"
+#include "C:\Users\مول الاصدقاء للاتسوق\CLionProjects\CS\Four_in_a_row_RandomPlayer.cpp"
+#include "C:\Users\مول الاصدقاء للاتسوق\CLionProjects\CS\RandomPlayer2.cpp"
 
 int main() {
     GameMenu p;
