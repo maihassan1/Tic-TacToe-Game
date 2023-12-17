@@ -1,1 +1,107 @@
+#include <iostream>
+#include"C:\Users\مول الاصدقاء للاتسوق\CLionProjects\CS\BoardGame.h"
+using namespace std;
+Four_in_a_row_Board::Four_in_a_row_Board() : Board() {
+    n_rows = 6;
+    n_cols = 7;
+    board = new char*[n_rows];
+    for (int i = 0; i < n_rows; ++i) {
+        board[i] = new char[n_cols];
+        for (int j = 0; j < n_cols; ++j) {
+            board[i][j] = ' ';
+        }
+    }
+}
+bool Four_in_a_row_Board::update_board(int column, int row, char mark) {
+    // Check if the column is within the valid range
+    if (column < 0 || column >= n_cols) {
+        cout << "Invalid column. Please choose a column between 0 and 6.\n";
+        return false;
+    }
 
+    // Check if the column is full
+    if (board[0][column] != ' ') {
+        cout << "Column is full. Choose another column.\n";
+        return false;
+    }
+
+    // Find the lowest empty square in the chosen column and place the symbol
+    for (int row = n_rows - 1; row >= 0; --row) {
+        if (board[row][column] == ' ') {
+            board[row][column] = mark;
+            n_moves++;
+            return true;
+        }
+    }
+
+    return false; // This should not be reached, but added for completeness
+}
+
+
+void Four_in_a_row_Board::display_board() {
+    cout << "  0   1   2   3   4   5   6" << endl;
+    cout << "-----------------------------" << endl;
+    for (int i = 0; i < n_rows; ++i) {
+        for (int j = 0; j < n_cols; ++j) {
+            cout << "| " << (board[i][j] == ' ' ? ' ' : board[i][j]) << " ";
+        }
+        cout << "|" << endl;
+        cout << "-----------------------------" << endl;
+    }
+}
+
+bool Four_in_a_row_Board::is_winner() {
+    // Check for a win condition (vertical, horizontal, or diagonal)
+    for (int i = 0; i < n_rows; ++i) {
+        for (int j = 0; j < n_cols; ++j) {
+            char currentSymbol = board[i][j];
+
+            // Check horizontally
+            if (j + 3 < n_cols &&
+                currentSymbol != ' ' &&
+                currentSymbol == board[i][j + 1] &&
+                currentSymbol == board[i][j + 2] &&
+                currentSymbol == board[i][j + 3]) {
+                return true;
+            }
+
+            // Check vertically
+            if (i + 3 < n_rows &&
+                currentSymbol != ' ' &&
+                currentSymbol == board[i + 1][j] &&
+                currentSymbol == board[i + 2][j] &&
+                currentSymbol == board[i + 3][j]) {
+                return true;
+            }
+
+            // Check diagonally (top-left to bottom-right)
+            if (i + 3 < n_rows && j + 3 < n_cols &&
+                currentSymbol != ' ' &&
+                currentSymbol == board[i + 1][j + 1] &&
+                currentSymbol == board[i + 2][j + 2] &&
+                currentSymbol == board[i + 3][j + 3]) {
+                return true;
+            }
+
+            // Check diagonally (bottom-left to top-right)
+            if (i - 3 >= 0 && j + 3 < n_cols &&
+                currentSymbol != ' ' &&
+                currentSymbol == board[i - 1][j + 1] &&
+                currentSymbol == board[i - 2][j + 2] &&
+                currentSymbol == board[i - 3][j + 3]) {
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+
+bool Four_in_a_row_Board::is_draw() {
+    // Check if the board is full, indicating a draw
+    return n_moves == n_rows * n_cols;
+}
+
+bool Four_in_a_row_Board::game_is_over() {
+    return is_winner() || is_draw();
+}
