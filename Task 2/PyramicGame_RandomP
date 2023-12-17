@@ -6,13 +6,13 @@
 using namespace std;
 
 // Set player symbol and name as Random Computer Player
-RandomPlayer2::RandomPlayer2(char symbol, int dimension) : Player(symbol) {
+PyramicRandomPlayer::PyramicRandomPlayer(char symbol, int dimension) : Player(symbol) {
     this->name = "Random Computer Player (Pyramic)";
     cout << "My name is " << name << endl;
 }
 
 // Generate a random move within the bounds of odd rows
-void RandomPlayer2:: get_move(int& x, int& y)  {
+void PyramicRandomPlayer:: get_move(int& x, int& y)  {
 
 x = (int) (rand() / (RAND_MAX + 1.0) * dimension) * 2 + 1;  // Generate random odd row
 y = (int) (rand() / (RAND_MAX + 1.0) * (x +2));
