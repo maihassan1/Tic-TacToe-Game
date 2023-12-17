@@ -116,13 +116,13 @@ public:
     // Generate a random move
     void get_move(int& x, int& y);
 };
-class RandomPlayer2: public Player {
+class PyramicRandomPlayer: public Player {
 protected:
     int oddRows;
     int dimension;
 public:
     // Take a symbol and pass it to parent
-    RandomPlayer2 (char symbol, int dimension);
+    PyramicRandomPlayer (char symbol, int dimension);
     // Generate a random move
     void get_move(int& x, int& y);
 };
