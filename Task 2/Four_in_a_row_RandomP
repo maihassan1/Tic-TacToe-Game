@@ -1,0 +1,13 @@
+#include <iostream>
+#include"C:\Users\مول الاصدقاء للاتسوق\CLionProjects\CS\BoardGame.h"
+using namespace std;
+Four_in_a_row_BoardRandomPlayer::Four_in_a_row_BoardRandomPlayer (char symbol, int dimension):Player(symbol)
+{
+    this->dimension = dimension;
+    this->name = "Random Computer Player";
+    cout << "My names is " << name << endl;
+}
+void Four_in_a_row_BoardRandomPlayer::get_move (int& x, int& y) {
+    x = (int) (rand()/(RAND_MAX + 1.0) * dimension);
+    y = (int) (rand()/(RAND_MAX + 1.0) * dimension);
+}
